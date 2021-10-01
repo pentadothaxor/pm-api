@@ -1,0 +1,22 @@
+{
+  "name": "pentamovie-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "prod": "pm2 start server.js -i max"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "exec": "^0.2.1",
+    "node-fetch": "^3.0.0",
+    "pg": "^8.7.1",
+    "polka": "^0.5.2"
+  }
+}
