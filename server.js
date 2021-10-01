@@ -6,9 +6,7 @@ dotenv.config();
 const app = polka();
 
 const __PORT = process.env.PORT || 3000;
-const databaseConnectionString =
-    process.env.DATABASE_URL ||
-    'postgres://dqystggbtbkzap:042591f99d01c33875f2fbd6bc3bb7d72d505f6b1b00f46f6f40d75525390a91@ec2-44-198-146-224.compute-1.amazonaws.com:5432/d9h9va86gpg65k';
+const databaseConnectionString = process.env.DATABASE_URL;
 
 const { Pool } = pg;
 const pool = new Pool({
