@@ -5,7 +5,7 @@ dotenv.config();
 
 const app = polka();
 
-const __PORT = 3000;
+const __PORT = process.env.PORT || 3000;
 
 const { Pool } = pg;
 const pool = new Pool({
