@@ -23,7 +23,7 @@ await pool.connect();
 import Movie from './src/movie.js';
 
 app.get('/', async (req, res, next) => {
-    const result = await pool.query('select * from genres limit 5;');
+    const result = await pool.query('select * from genres');
 
     let response = 'Hello, world!<br/>';
     for (let row of result.rows) {
