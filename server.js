@@ -36,22 +36,20 @@ app.get('/', async (req, res, next) => {
 app.get('/movies', async (req, res, next) => {
     const movies = await Movie.getAll();
 
-    const sql = `select * from movie`;
+    const sql = `select * from movie;`;
     const query = await pool.query(sql);
     const response = JSON.stringify(query.rows);
     res.setHeader('Content-Type', 'application/json');
     res.end(response);
 });
 
-app.get('/movies/recently-added', async(req, res)=>{
+app.get('/movies/recently-added', async (req, res) => {
     const sql = `select * from movie order by date_added desc limit 15;`;
-    const query = await pool.query(sql)
+    const query = await pool.query(sql);
     const response = JSON.stringify(query.rows);
     res.setHeader('Content-Type', 'application/json');
     res.end(response);
-
-
-})
+});
 
 app.get('/movie/:id', (req, res, next) => {
     const movieId = req?.params?.id;
@@ -62,7 +60,7 @@ app.get('/movie/:start/:end', async (req, res, next) => {
     const start = req?.params?.start;
     const end = req?.params?.end;
 
-    const sql = `select * from movie offset ${start} limit ${end}`;
+    const sql = `select * from movie offset ${start} limit ${end};`;
     const query = await pool.query(sql);
     const response = JSON.stringify(query.rows);
     res.setHeader('Content-Type', 'application/json');
@@ -90,3 +88,4 @@ app.delete('/movie/:id', (req, res, next) => {
 app.listen(__PORT, () => {
     console.log(`Started listening on port ${__PORT}`);
 });
+);
