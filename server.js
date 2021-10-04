@@ -88,4 +88,3 @@ app.delete('/movie/:id', (req, res, next) => {
 app.listen(__PORT, () => {
     console.log(`Started listening on port ${__PORT}`);
 });
-);
